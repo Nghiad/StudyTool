@@ -39,31 +39,31 @@ def study():
     print ("To exit, enter 'quit'.")
     print ()
     while temp != 'quit':
-              randomized = list(dictionary.items())
-              random.shuffle(randomized)
-              dictionized = dict(randomized)
-              for term in dictionized:
-                  print ()
-                  print (dictionized[term])
-                  print ()
-                  temp = input().lower().strip()
-                  if temp == 'quit':
-                      print ("points:", points)           #user can guess the term for points
-                      print ()
-                      break
-                  elif temp == term.lower():
-                      points += 1
-                      print ("points :", points)
-                      print ()
-                  else:
-                      print ()
-                      print ("    ", term)
-                      print ()
-                      temp = input().lower().strip()
-                      if temp == 'quit':
-                          print("points:", points)
-                          print ()
-                          break
+        randomized = list(dictionary.items())
+        random.shuffle(randomized)
+        dictionized = dict(randomized)
+        for term in dictionized:
+            print ()
+            print (dictionized[term])
+            print ()
+            temp = input().lower().strip()
+            if temp == 'quit':
+                print ("points:", points)           #user can guess the term for points
+                print ()
+                break
+            elif temp == term.lower():
+                points += 1
+                print ("points :", points)
+                print ()
+            else:
+                print ()
+                print ("    ", term)
+                print ()
+                temp = input().lower().strip()
+                if temp == 'quit':
+                    print("points:", points)
+                    print ()
+                    break
 
 if __name__ == '__main__':                                       #main program loop for UI
     while True:
