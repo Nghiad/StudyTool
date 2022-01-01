@@ -35,63 +35,36 @@ def study():
     temp = 'studying'                                          
     points = 0
     print ("* guess the term for points")
-    choice = input("Study [term] or [definition*]? ").lower().strip()
-    if choice == 'term':                                #show term first, then definition
-        print ()
-        print ("To exit, enter 'quit'.")
-        print ()
-        while temp != 'quit':                       #if user input is quit, end function
-            randomized = list(dictionary.items())
-            random.shuffle(randomized)
-            dictionized = dict(randomized)
-            for term in dictionized:
+    print ()
+    print ("To exit, enter 'quit'.")
+    print ()
+    while temp != 'quit':
+        randomized = list(dictionary.items())
+        random.shuffle(randomized)
+        dictionized = dict(randomized)
+        for term in dictionized:
+            print ()
+            print (dictionized[term])
+            print ()
+            temp = input().lower().strip()
+            if temp == 'quit':
+                print ("points:", points)           #user can guess the term for points
+                print ()
+                break
+            elif temp == term.lower():
+                points += 1
+                print ("correct!")
+                print ("points :", points)
+                print ()
+            else:
                 print ()
                 print ("    ", term)
                 print ()
                 temp = input().lower().strip()
                 if temp == 'quit':
+                    print("points:", points)
                     print ()
                     break
-                print ()
-                print (dictionized[term])
-                print ()
-                temp = input().lower().strip()
-                if temp == 'quit':
-                    print ()
-                    break
-
-    elif choice == 'definition':                        #show definition first, then term
-        print ()
-        print ("To exit, enter 'quit'.")
-        print ()
-        while temp != 'quit':
-            randomized = list(dictionary.items())
-            random.shuffle(randomized)
-            dictionized = dict(randomized)
-            for term in dictionized:
-                print ()
-                print (dictionized[term])
-                print ()
-                temp = input().lower().strip()
-                if temp == 'quit':
-                    print ("points:", points)           #user can guess the term for points
-                    print ()
-                    break
-                elif temp == term.lower():
-                    points += 1
-                    print ("points :", points)
-                    print ()
-                else:
-                    print ()
-                    print ("    ", term)
-                    print ()
-                    temp = input().lower().strip()
-                    if temp == 'quit':
-                        print("points:", points)
-                        print ()
-                        break
-    else:
-        print('invalid option')
 
 if __name__ == '__main__':                                       #main program loop for UI
     while True:
